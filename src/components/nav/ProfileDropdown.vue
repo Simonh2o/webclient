@@ -37,7 +37,7 @@ const modal = useModal()
 .profiledrop {
     position: absolute;
 
-    z-index: 9999;
+    z-index: 10;
     top: 2.25rem;
     right: 0;
     width: 10.25rem;
