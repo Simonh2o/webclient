@@ -190,7 +190,7 @@ function runChildAction(action: () => void) {
         width: 1.5rem;
         position: absolute;
         right: 2px;
-        bottom: 6px;
+        bottom: 5px;
         transform: scale(0.65);
     }
 
