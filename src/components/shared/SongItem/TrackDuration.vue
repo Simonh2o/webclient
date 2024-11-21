@@ -1,8 +1,5 @@
 <template>
     <div class="options-and-duration">
-        <div v-if="is_fav && showFavIcon !== false" class="heart-icon is-favorited">
-            <HeartSvg :state="is_fav" :no_emit="true" />
-        </div>
         <div class="song-duration" :class="{ has_help_text: help_text }">{{ formatSeconds(duration) }}</div>
         <div class="song-duration help-text" v-if="help_text">
             {{ help_text }}
@@ -16,12 +13,9 @@
 <script setup lang="ts">
 import OptionSvg from '@/assets/icons/more.svg'
 import { formatSeconds } from '@/utils'
-import HeartSvg from '../HeartSvg.vue'
 
 defineProps<{
     duration: number
-    is_fav: boolean
-    showFavIcon?: boolean
     help_text?: string
 }>()
 
@@ -41,29 +35,6 @@ defineEmits<{
 
     @include allPhones {
         gap: $small;
-    }
-
-    @include mediumPhones {
-        > .heart-icon.is-favorited {
-            display: none;
-        }
-    }
-
-    > .heart-icon.is-favorited {
-        display: block;
-        width: 28px;
-        height: 28px;
-        user-select: none;
-        pointer-events: none;
-        transition: opacity 0.2s ease-out;
-
-        @include mediumPhones {
-            display: none;
-        }
-
-        > .heart-button {
-            all: unset !important;
-        }
     }
 
     .song-duration {
@@ -111,9 +82,5 @@ defineEmits<{
             background-color: $gray3;
         }
     }
-}
-
-.songlist-item:hover > .options-and-duration > .heart-icon.is-favorited {
-    opacity: 0;
 }
 </style>

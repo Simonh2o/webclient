@@ -21,19 +21,12 @@
             :albumhash="track.albumhash || ''"
             :hide_album="hide_album || false"
         />
-        <TrackDuration
-            :duration="track.duration || 0"
-            @showMenu="showMenu"
-            :help_text="track.help_text"
-            :is_fav="is_fav"
-            :showFavIcon="!isFavoritesPage"
-        />
+        <TrackDuration :duration="track.duration || 0" @showMenu="showMenu" :help_text="track.help_text" />
     </div>
 </template>
 
 <script setup lang="ts">
 import { onBeforeUnmount, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
 
 import { dropSources, favType } from '@/enums'
 import { showTrackContextMenu as showContext } from '@/helpers/contextMenuHandler'
@@ -109,9 +102,6 @@ const stopWatcher = watch(
 onBeforeUnmount(() => {
     stopWatcher()
 })
-
-const route = useRoute()
-const isFavoritesPage = route.path.startsWith('/favorites')
 </script>
 
 <style lang="scss">
