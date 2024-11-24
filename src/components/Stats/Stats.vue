@@ -26,10 +26,10 @@
 </template>
 
 <script setup lang="ts">
+import CalendarSvg from '@/assets/icons/calendar.svg'
 import { getStats } from '@/requests/stats'
 import { onMounted, ref } from 'vue'
 import StatItem from './StatItem.vue'
-import CalendarSvg from '@/assets/icons/calendar.svg'
 
 interface StatItem {
     cssclass: string
@@ -61,15 +61,86 @@ onMounted(async () => {
 
 <style lang="scss">
 .statshead {
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    overflow-x: auto;
-    gap: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $larger;
     padding: 1rem;
 
     .left {
         display: flex;
-        gap: 2rem;
+        flex-wrap: wrap;
+        gap: $larger;
+    }
+
+    // Special case for the stats cards, viewport is targeted when the flex-wrap happens
+    @media only screen and (max-width: 1155px) {
+        .left {
+            width: 100%;
+            flex-wrap: nowrap;
+
+            .statitem {
+                flex-shrink: 0;
+            }
+
+            .statitem.toptrack {
+                flex-shrink: 1;
+                width: 100%;
+            }
+        }
+    }
+
+    @include allPhones {
+        .left,
+        .right {
+            .statitem {
+                height: auto;
+            }
+        }
+
+        .left {
+            flex-wrap: wrap;
+
+            .statitem {
+                width: calc(50% - 1rem);
+                aspect-ratio: unset;
+                padding-top: 2.5rem;
+            }
+
+            .statitem.toptrack {
+                width: 100%;
+                padding-top: 4.5rem;
+            }
+        }
+
+        .right {
+            width: 100%;
+
+            .statitem.topalbum {
+                aspect-ratio: unset;
+                width: 100%;
+                padding-top: 4.5rem;
+            }
+        }
+    }
+
+    @include mediumPhones {
+        gap: $large;
+
+        .left {
+            gap: $large;
+        }
+
+        .left,
+        .right {
+            .statitem {
+                width: 100%;
+
+                .itemcontent {
+                    gap: $smaller;
+                }
+            }
+        }
     }
 
     .streamduration {
