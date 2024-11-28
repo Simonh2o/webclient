@@ -2,36 +2,21 @@
     <div class="aboutswingmusic">
         <div class="version">Swing Music v{{ settings.version }}</div>
         Swing Music is a labor of love developed by
-        <a
-            href="https://github.com/cwilvx"
-            target="_blank"
-            >@<u>cwilvx</u></a
-        >
-        on GitHub. If you like this software, a star on GitHub would be nice.
-        Hope you enjoy using it as much as I enjoy building it. 😁🤗
+        <a href="https://github.com/cwilvx" target="_blank">@<u>cwilvx</u></a>
+        on GitHub. If you like this software, a star on GitHub would be nice. Hope you enjoy using it as much as I enjoy
+        building it. 😁🤗
         <br /><br />
         <div class="links">
             <h2>Links</h2>
             <div class="flex">
-                <a
-                    href="https://swingmusic.vercel.app/guide/introduction.html"
-                    target="_blank"
+                <a href="https://swingmusic.vercel.app/guide/introduction.html" target="_blank"
                     ><button>Docs</button></a
                 >
-                <a
-                    href="https://github.com/cwilvx/swingmusic"
-                    target="_blank"
-                    ><button>Star on Github</button></a
-                >
-                <a
-                    href="https://github.com/cwilvx/swingmusic/issues/new/choose"
-                    target="_blank"
-                >
+                <a href="https://github.com/cwilvx/swingmusic" target="_blank"><button>Star on Github</button></a>
+                <a href="https://github.com/cwilvx/swingmusic/issues/new/choose" target="_blank">
                     <button>Report issue</button>
                 </a>
-                <a
-                    href="https://github.com/cwilvx/swingmusic/blob/master/.github/contributing.md"
-                    target="_blank"
+                <a href="https://github.com/cwilvx/swingmusic/blob/master/.github/contributing.md" target="_blank"
                     ><button>Contribute</button></a
                 >
             </div>
@@ -39,8 +24,7 @@
         <br />
         <div class="contact">
             <h2>Get in touch</h2>
-            If you like my work, and would like to say hi, I'd like to hear from
-            you.
+            If you like my work, and would like to say hi, I'd like to hear from you.
             <br /><br />
             <div class="flex">
                 <a
@@ -62,7 +46,7 @@ const settings = useSettings()
 
 <style lang="scss">
 .aboutswingmusic {
-    padding: $small;
+    // padding: $small;
 
     .version {
         font-size: 1.5rem;

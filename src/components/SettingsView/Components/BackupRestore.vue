@@ -2,7 +2,7 @@
     <div class="backup-restore">
         <button class="backupnow" @click="doBackup">Backup</button>
         <div class="separator"></div>
-        <h4>Restore backup</h4>
+        <div class="title">Restore backup</div>
         <div class="helptext">
             You have {{ backups.length }} backup{{ backups.length !== 1 ? 's' : '' }} in your backup directory.
         </div>
@@ -43,10 +43,10 @@
 </template>
 
 <script setup lang="ts">
-import { backupNow, getBackups, restoreBackup, deleteBackup as deleteBackupReq } from '@/requests/settings'
-import { onMounted, ref } from 'vue'
-import { useToast } from '@/stores/notification'
 import DeleteSvg from '@/assets/icons/delete.svg'
+import { backupNow, deleteBackup as deleteBackupReq, getBackups, restoreBackup } from '@/requests/settings'
+import { useToast } from '@/stores/notification'
+import { onMounted, ref } from 'vue'
 
 const toast = useToast()
 
@@ -98,6 +98,10 @@ async function deleteBackup(backup_dir: string) {
 <style lang="scss">
 .backup-restore {
     position: relative;
+
+    .title {
+        font-weight: 500;
+    }
 
     .itemlist {
         display: grid;
@@ -151,14 +155,14 @@ async function deleteBackup(backup_dir: string) {
 
     .separator {
         width: calc(100% + 0.5rem);
-        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .helptext {
         font-size: small;
         color: $gray1;
-        font-weight: 400;
-        margin-top: -0.25rem;
+        font-weight: 500;
+        margin-top: $smaller;
     }
 
     .buttons {

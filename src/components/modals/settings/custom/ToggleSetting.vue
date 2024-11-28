@@ -1,18 +1,12 @@
 <template>
     <div class="togglesetting rounded-sm">
         <div class="text">
-            <div>{{ title }}</div>
-            <div
-                class="desc"
-                v-if="desc"
-            >
+            <div class="title">{{ title }}</div>
+            <div class="desc" v-if="desc">
                 {{ desc }}
             </div>
         </div>
-        <Switch
-            :state="value"
-            @click="$emit('input', !value)"
-        />
+        <Switch :state="value" @click="$emit('input', !value)" />
     </div>
 </template>
 
@@ -35,6 +29,7 @@ defineEmits<{
     grid-template-columns: 1fr max-content;
     align-items: center;
     padding: $small;
+    transition: background-color 0.2s ease-out;
 
     &.disabled {
         opacity: 0.5;

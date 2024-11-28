@@ -141,9 +141,10 @@ defineProps<{
 
     .setting {
         // background-color: $gray;
+        padding: 1.125rem 1rem;
 
         @include mediumPhones {
-            padding: 1rem $small;
+            padding: 1.125rem $small;
         }
 
         .inactive {
