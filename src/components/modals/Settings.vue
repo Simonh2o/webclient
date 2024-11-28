@@ -79,12 +79,14 @@ function handleGoBack() {
 $modalheight: 38rem;
 
 .settingsmodal {
-    display: grid;
-    grid-template-columns: 15rem 1fr;
+    display: flex;
+    width: 100%;
+    height: 652px; // The initial modal window height when all options are available
 
     .content {
         display: grid;
         grid-template-rows: 4rem 1fr;
+        width: 100%;
 
         .head {
             border-bottom: solid 1px $gray4;
@@ -142,10 +144,9 @@ $modalheight: 38rem;
 }
 
 .settingsmodal.isSmallPhone {
-    grid-template-columns: 1fr;
-
     .settingssidebar {
         border-right: none;
+        width: 100%;
     }
 }
 </style>

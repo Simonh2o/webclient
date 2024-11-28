@@ -55,18 +55,20 @@ defineEmits<{
 
 <style lang="scss">
 .settingssidebar {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 240px;
+    max-height: calc(100vh - 4rem);
+
+    user-select: none;
+    padding: 1.5rem;
     border-right: solid 1px $gray4;
     background-color: $gray;
-    padding: 1.5rem;
-
-    display: grid;
-    grid-template-rows: 1fr max-content;
-    user-select: none;
 
     overflow: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    max-height: calc(100vh - 4rem);
 
     @include allPhones {
         max-height: calc(100vh - 2rem);
@@ -79,6 +81,7 @@ defineEmits<{
     .groups {
         display: flex;
         flex-direction: column;
+        width: 100%;
 
         .group {
             &:first-child {
